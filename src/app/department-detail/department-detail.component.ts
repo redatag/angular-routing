@@ -37,4 +37,9 @@ this.route.paramMap.subscribe(
   // الكود الى جود الفانكشن مش هيتنف1 
   // لحل المشكله بنستخدم paramMap observable 
 
+  goToDepartments(){
+
+    let selectedId = this.departmentId ? this.departmentId : null;
+    this.router.navigate(['/departments', {id: selectedId}]);
+  }
 }

@@ -1,7 +1,7 @@
 <p>depatment-list works!</p>
 
-<ul>
-<li (click)="onSelect(department)" *ngFor="let department of departments">
+<ul class="items">
+<li (click)="onSelect(department)" [class.selected]="isSelected(department)" *ngFor="let department of departments">
     <button class="badge"> {{department.id}} - {{department.name}}</button>
 </li>
 </ul>
