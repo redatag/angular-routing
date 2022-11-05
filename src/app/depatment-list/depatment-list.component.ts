@@ -29,7 +29,10 @@ export class DepatmentListComponent implements OnInit {
   onSelect(dept: any){
     //to pass param with navigation we use Router service
     //to read parem we use ActivateRoute service
-    this.router.navigate(['/departments', dept.id])
+    //this.router.navigate(['/departments', dept.id]);
+    //use relative routing
+    this.router.navigate([dept.id], {relativeTo: this.route});
+
   }
 
   isSelected(department: any){

@@ -13,10 +13,12 @@ const routes: Routes = [
   //and comp to be rendered when navigate to that corresponding path
 
   // {path: '', component: DepatmentListComponent},
-  {path: '', redirectTo: '/departments', pathMatch: 'full'},
+  {path: '', redirectTo: '/departments-list', pathMatch: 'full'},
   // reoute if the full path is empty
-  {path: 'departments', component: DepatmentListComponent},
-  {path: 'departments/:id', component: DepartmentDetailComponent},
+  {path: 'departments-list', component: DepatmentListComponent},
+  {path: 'departments-list/:id', component: DepartmentDetailComponent},
+  // {path: 'departments/:id', component: DepartmentDetailComponent},
+  //:id is aplace holder for the param
   {path: 'employees', component: EmployeeListComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
