@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DepartmentContactComponent } from './department-contact/department-contact.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
 import { DepatmentListComponent } from './depatment-list/depatment-list.component';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -13,11 +15,19 @@ const routes: Routes = [
   //and comp to be rendered when navigate to that corresponding path
 
   // {path: '', component: DepatmentListComponent},
-  {path: '', redirectTo: '/departments-list', pathMatch: 'full'},
+  {path: '', redirectTo: '/departments', pathMatch: 'full'},
   // reoute if the full path is empty
-  {path: 'departments-list', component: DepatmentListComponent},
-  {path: 'departments-list/:id', component: DepartmentDetailComponent},
-  // {path: 'departments/:id', component: DepartmentDetailComponent},
+  {
+    path: 'departments', 
+    component: DepatmentListComponent,
+    children:[
+      {path:'overview', component: DepartmentContactComponent},
+      {path:'contact', component: DepartmentOverviewComponent}
+
+    ]
+  },
+  {path: 'departments/:id', component: DepartmentDetailComponent},
+  // {path: 'departments-list/:id', component: DepartmentDetailComponent},
   //:id is aplace holder for the param
   {path: 'employees', component: EmployeeListComponent},
   {path: '**', component: PageNotFoundComponent}
@@ -33,7 +43,8 @@ export class AppRoutingModule { }
 //ng g c depatment-list -it --is
 
 export const routingComponents = [DepatmentListComponent, EmployeeListComponent,
-  DepartmentDetailComponent, PageNotFoundComponent]
+  DepartmentDetailComponent, PageNotFoundComponent,
+  DepartmentOverviewComponent, DepartmentContactComponent]
 
 
 
